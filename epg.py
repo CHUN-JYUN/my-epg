@@ -2,62 +2,84 @@ import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta
 
 def generate_epg():
-    tv = ET.Element('tv', generator_info_name='MyEPG')
+    tv = ET.Element('tv', generator_info_name='MyEPG-VL-DAZN')
     
-    # 只保留【體育賽事類】頻道 (頻道ID, 播放清單完整台名, 台標Logo網址)
-    channels = [
-        ('videoland_sports', '[TW-I] 22 緯來體育台', 'https://raw.githubusercontent.com/fanming/tv/main/logo/videoland_sports.png'),
-        ('videoland_sports_a', '[TW-I] 22 緯來體育台 (a)', 'https://raw.githubusercontent.com/fanming/tv/main/logo/videoland_sports.png'),
-        ('videoland_sports_b', '[TW-I] 22 緯來體育台 (b)', 'https://raw.githubusercontent.com/fanming/tv/main/logo/videoland_sports.png'),
-        ('videoland_sports_c', '[TW-I] 22 緯來體育台 (c)', 'https://raw.githubusercontent.com/fanming/tv/main/logo/videoland_sports.png'),
-        ('dazn1', '[TW-I] 64 DAZN 1', 'https://raw.githubusercontent.com/fanming/tv/main/logo/dazn1.png'),
-        ('dazn1_a', '[TW-I] 64 DAZN 1 (a)', 'https://raw.githubusercontent.com/fanming/tv/main/logo/dazn1.png'),
-        ('dazn1_b', '[TW-I] 64 DAZN 1 (b)', 'https://raw.githubusercontent.com/fanming/tv/main/logo/dazn1.png'),
-        ('dazn2', '[TW-I] 65 DAZN 2', 'https://raw.githubusercontent.com/fanming/tv/main/logo/dazn2.png'),
-        ('dazn2_a', '[TW-I] 65 DAZN 2 (a)', 'https://raw.githubusercontent.com/fanming/tv/main/logo/dazn2.png'),
-        ('dazn2_b', '[TW-I] 65 DAZN 2 (b)', 'https://raw.githubusercontent.com/fanming/tv/main/logo/dazn2.png'),
-        ('dazn2_c', '[TW-I] 65 DAZN 2 (c)', 'https://raw.githubusercontent.com/fanming/tv/main/logo/dazn2.png'),
-        ('elta1_backup', '[TW-I] 66 愛爾達體育1台|備 (1080p)', 'https://raw.githubusercontent.com/fanming/tv/main/logo/elta1.png'),
-        ('elta1_1080p', '[TW-I] 66 愛爾達體育1台 (1080p)', 'https://raw.githubusercontent.com/fanming/tv/main/logo/elta1.png'),
-        ('elta1_720p', '[TW-I] 66 愛爾達體育1台 (720p)', 'https://raw.githubusercontent.com/fanming/tv/main/logo/elta1.png'),
-        ('elta1_live', '[TW-I] 66 愛爾達體育1台|比賽時開放', 'https://raw.githubusercontent.com/fanming/tv/main/logo/elta1.png'),
-        ('elta2_1080p', '[TW-I] 67 愛爾達體育2台 (1080p)', 'https://raw.githubusercontent.com/fanming/tv/main/logo/elta2.png'),
-        ('elta2_backup', '[TW-I] 67 愛爾達體育2台|備 (1080p)', 'https://raw.githubusercontent.com/fanming/tv/main/logo/elta2.png'),
-        ('elta2_720p', '[TW-I] 67 愛爾達體育2台 (720p)', 'https://raw.githubusercontent.com/fanming/tv/main/logo/elta2.png'),
-        ('elta2_live', '[TW-I] 67 愛爾達體育2台|比賽時開放', 'https://raw.githubusercontent.com/fanming/tv/main/logo/elta2.png'),
-        ('elta3_1080p', '[TW-I] 68 愛爾達體育3台 (1080p)', 'https://raw.githubusercontent.com/fanming/tv/main/logo/elta3.png'),
-        ('elta3_backup', '[TW-I] 68 愛爾達體育3台|備 (1080p)', 'https://raw.githubusercontent.com/fanming/tv/main/logo/elta3.png'),
-        ('elta3_720p', '[TW-I] 68 愛爾達體育3台 (720p)', 'https://raw.githubusercontent.com/fanming/tv/main/logo/elta3.png'),
-        ('elta3_live', '[TW-I] 68 愛爾達體育3台|比賽時開放', 'https://raw.githubusercontent.com/fanming/tv/main/logo/elta3.png'),
-        ('elta4', '[TW-I] 69 愛爾達體育4台', 'https://raw.githubusercontent.com/fanming/tv/main/logo/elta4.png'),
-        ('elta4_backup', '[TW-I] 69 愛爾達體育4台|備 (1080p)', 'https://raw.githubusercontent.com/fanming/tv/main/logo/elta4.png'),
-        ('elta4_720p', '[TW-I] 69 愛爾達體育4台 (720p)', 'https://raw.githubusercontent.com/fanming/tv/main/logo/elta4.png'),
-        ('elta4_live', '[TW-I] 69 愛爾達體育4台|比賽時開放', 'https://raw.githubusercontent.com/fanming/tv/main/logo/elta4.png'),
-        ('eltamax1', '[TW-I] 70 愛爾達體育MAX1台|比賽時開放', 'https://raw.githubusercontent.com/fanming/tv/main/logo/elta.png'),
-        ('eltamax2', '[TW-I] 71 愛爾達體育MAX2台|比賽時開放', 'https://raw.githubusercontent.com/fanming/tv/main/logo/elta.png'),
-        ('eltamax3', '[TW-I] 72 愛爾達體育MAX3台|比賽時開放', 'https://raw.githubusercontent.com/fanming/tv/main/logo/elta.png'),
-        ('eltamax4', '[TW-I] 73 愛爾達體育MAX4台|比賽時開放', 'https://raw.githubusercontent.com/fanming/tv/main/logo/elta.png'),
-        ('eltamax5', '[TW-I] 544 愛爾達體育MAX5台|比賽時開放', 'https://raw.githubusercontent.com/fanming/tv/main/logo/elta.png'),
-        ('eltamax6', '[TW-I] 545 愛爾達體育MAX6台|比賽時開放', 'https://raw.githubusercontent.com/fanming/tv/main/logo/elta.png'),
-        ('eltamax7', '[TW-I] 546 愛爾達體育MAX7台|比賽時開放', 'https://raw.githubusercontent.com/fanming/tv/main/logo/elta.png'),
-        ('eltamax8', '[TW-I] 547 愛爾達體育MAX8台|比賽時開放', 'https://raw.githubusercontent.com/fanming/tv/main/logo/elta.png'),
-        ('eltamax9', '[TW-I] 548 愛爾達體育MAX9台|比賽時開放', 'https://raw.githubusercontent.com/fanming/tv/main/logo/elta.png'),
-        ('eltamax10', '[TW-I] 549 愛爾達體育MAX10台|比賽時開放', 'https://raw.githubusercontent.com/fanming/tv/main/logo/elta.png'),
-        ('bein1', '[NowTV] 638 beIN SPORTS 1', 'https://raw.githubusercontent.com/fanming/tv/main/logo/bein1.png'),
-        ('bein1_live', '[NowTV] 638 beIN SPORTS 1|比賽時開放', 'https://raw.githubusercontent.com/fanming/tv/main/logo/bein1.png'),
-        ('bein2', '[NowTV] 639 beIN SPORTS 2', 'https://raw.githubusercontent.com/fanming/tv/main/logo/bein2.png')
+    # (標準ID, 主要名稱, M3U8所有可能的名稱別名, Logo網址)
+    target_channels = [
+        # --- 緯來系列 ---
+        (
+            'VideolandSports.tw',
+            '緯來體育台',
+            ['[TW-I] 22 緯來體育台', '[TW-I] 22 緯來體育台 (a)', '[TW-I] 22 緯來體育台 (b)', '[TW-I] 22 緯來體育台 (c)', '緯來體育台', '緯來體育'],
+            'https://raw.githubusercontent.com/fanming/tv/main/logo/videoland_sports.png'
+        ),
+        (
+            'VideolandVariety.tw',
+            '緯來綜合台',
+            ['[TW-I] 25 緯來綜合台', '[TW-I] 25 緯來綜合台 (a)', '[TW-I] 25 緯來綜合台 (b)', '緯來綜合台', '緯來綜合'],
+            'https://raw.githubusercontent.com/fanming/tv/main/logo/videoland_variety.png'
+        ),
+        (
+            'VideolandJapan.tw',
+            '緯來日本台',
+            ['[TW-I] 27 緯來日本台', '[TW-I] 27 緯來日本台 (a)', '[TW-I] 27 緯來日本台 (b)', '緯來日本台', '緯來日本'],
+            'https://raw.githubusercontent.com/fanming/tv/main/logo/videoland_japan.png'
+        ),
+        (
+            'VideolandDrama.tw',
+            '緯來戲劇台',
+            ['[TW-I] 26 緯來戲劇台', '[TW-I] 26 緯來戲劇台 (a)', '[TW-I] 26 緯來戲劇台 (b)', '[TW-I] 26 緯來戲劇台 (c)', '緯來戲劇台', '緯來戲劇'],
+            'https://raw.githubusercontent.com/fanming/tv/main/logo/videoland_drama.png'
+        ),
+        (
+            'VideolandMovie.tw',
+            '緯來電影台',
+            ['[TW-I] 28 緯來電影台', '[TW-I] 28 緯來電影台 (a)', '[TW-I] 28 緯來電影台 (b)', '緯來電影台', '緯來電影'],
+            'https://raw.githubusercontent.com/fanming/tv/main/logo/videoland_movie.png'
+        ),
+        (
+            'VideolandFlash.tw',
+            '緯來精采',
+            ['[TW-I] 138 緯來精采', '緯來精采', '緯來精彩台'],
+            'https://raw.githubusercontent.com/fanming/tv/main/logo/videoland_hd.png'
+        ),
+
+        # --- DAZN 系列 ---
+        (
+            'DAZN1.tw',
+            'DAZN 1',
+            ['[TW-I] 64 DAZN 1', '[TW-I] 64 DAZN 1 (a)', '[TW-I] 64 DAZN 1 (b)', 'DAZN 1', 'DAZN1'],
+            'https://raw.githubusercontent.com/fanming/tv/main/logo/dazn1.png'
+        ),
+        (
+            'DAZN2.tw',
+            'DAZN 2',
+            ['[TW-I] 65 DAZN 2', '[TW-I] 65 DAZN 2 (a)', '[TW-I] 65 DAZN 2 (b)', '[TW-I] 65 DAZN 2 (c)', 'DAZN 2', 'DAZN2'],
+            'https://raw.githubusercontent.com/fanming/tv/main/logo/dazn2.png'
+        )
     ]
     
-    for ch_id, ch_name, logo_url in channels:
+    # 建立 XML 頻道資料
+    for ch_id, main_name, aliases, logo_url in target_channels:
         channel = ET.SubElement(tv, 'channel', id=ch_id)
-        display_name = ET.SubElement(channel, 'display-name')
-        display_name.text = ch_name
-        icon = ET.SubElement(channel, 'icon', src=logo_url)
+        
+        # 主顯示名稱
+        dn_main = ET.SubElement(channel, 'display-name')
+        dn_main.text = main_name
+        
+        # 寫入所有 M3U8 可能對應到的別名
+        for alias in aliases:
+            dn = ET.SubElement(channel, 'display-name')
+            dn.text = alias
+            
+        # 寫入 Logo 連結
+        ET.SubElement(channel, 'icon', src=logo_url)
 
     now = datetime.now()
     start_time = now.replace(minute=0, second=0, microsecond=0)
 
-    for ch_id, ch_name, _ in channels:
+    # 產生 24 小時時段節目
+    for ch_id, main_name, _, _ in target_channels:
         for i in range(12):
             p_start = start_time + timedelta(hours=2*i)
             p_end = p_start + timedelta(hours=2)
@@ -67,7 +89,7 @@ def generate_epg():
             
             programme = ET.SubElement(tv, 'programme', start=start_str, stop=end_str, channel=ch_id)
             title = ET.SubElement(programme, 'title', lang='zh')
-            title.text = f"{ch_name.split(']')[-1].strip()} - 精彩節目"
+            title.text = f"{main_name} - 精彩節目"
 
     tree = ET.ElementTree(tv)
     ET.indent(tree, space="  ", level=0)
