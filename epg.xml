@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='utf-8'?>
+<tv generator_info_name="MyEPG">
+  <channel id="videoland_sports">
+    <display-name>緯來體育台</display-name>
+  </channel>
+  <channel id="elta_sports1">
+    <display-name>愛爾達體育1台</display-name>
+  </channel>
+  <channel id="dazn1">
+    <display-name>DAZN 1</display-name>
+  </channel>
+  <programme start="20261016120000 +0800" stop="20261016140000 +0800" channel="videoland_sports">
+    <title lang="zh">緯來體育台 精彩節目</title>
+  </programme>
+  <programme start="20261016140000 +0800" stop="20261016160000 +0800" channel="videoland_sports">
+    <title lang="zh">緯來體育台 精彩節目</title>
+  </programme>
+  <programme start="20261016160000 +0800" stop="20261016180000 +0800" channel="videoland_sports">
+    <title lang="zh">緯來體育台 精彩節目</title>
+  </programme>
+  <programme start="20261016180000 +0800" stop="20261016200000 +0800" channel="videoland_sports">
+    <title lang="zh">緯來體育台 精彩節目</title>
+  </programme>
+  <programme start="20261016200000 +0800" stop="20261016220000 +0800" channel="videoland_sports">
+    <title lang="zh">緯來體育台 精彩節目</title>
+  </programme>
+  <programme start="20261016220000 +0800" stop="20261017000000 +0800" channel="videoland_sports">
+    <title lang="zh">緯來體育台 精彩節目</title>
+  </programme>
+  <programme start="20261017000000 +0800" stop="20261017020000 +0800" channel="videoland_sports">
+    <title lang="zh">緯來體育台 精彩節目</title>
+  </programme>
+  <programme start="20261017020000 +0800" stop="20261017040000 +0800" channel="videoland_sports">
+    <title lang="zh">緯來體育台 精彩節目</title>
+  </programme>
+  <programme start="20261017040000 +0800" stop="20261017060000 +0800" channel="videoland_sports">
+    <title lang="zh">緯來體育台 精彩節目</title>
+  </programme>
+  <programme start="20261017060000 +0800" stop="20261017080000 +0800" channel="videoland_sports">
+    <title lang="zh">緯來體育台 精彩節目</title>
+  </programme>
+  <programme start="20261017080000 +0800" stop="20261017100000 +0800" channel="videoland_sports">
+    <title lang="zh">緯來體育台 精彩節目</title>
+  </programme>
+  <programme start="20261017100000 +0800" stop="20261017120000 +0800" channel="videoland_sports">
+    <title lang="zh">緯來體育台 精彩節目</title>
+  </programme>
+  <programme start="20261016120000 +0800" stop="20261016140000 +0800" channel="elta_sports1">
+    <title lang="zh">愛爾達體育1台 精彩節目</title>
+  </programme>
+  <programme start="20261016140000 +0800" stop="20261016160000 +0800" channel="elta_sports1">
+    <title lang="zh">愛爾達體育1台 精彩節目</title>
+  </programme>
+  <programme start="20261016160000 +0800" stop="20261016180000 +0800" channel="elta_sports1">
+    <title lang="zh">愛爾達體育1台 精彩節目</title>
+  </programme>
+  <programme start="20261016180000 +0800" stop="20261016200000 +0800" channel="elta_sports1">
+    <title lang="zh">愛爾達體育1台 精彩節目</title>
+  </programme>
+  <programme start="20261016200000 +0800" stop="20261016220000 +0800" channel="elta_sports1">
+    <title lang="zh">愛爾達體育1台 精彩節目</title>
+  </programme>
+  <programme start="20261016220000 +0800" stop="20261017000000 +0800" channel="elta_sports1">
+    <title lang="zh">愛爾達體育1台 精彩節目</title>
+  </programme>
+  <programme start="20261017000000 +0800" stop="20261017020000 +0800" channel="elta_sports1">
+    <title lang="zh">愛爾達體育1台 精彩節目</title>
+  </programme>
+  <programme start="20261017020000 +0800" stop="20261017040000 +0800" channel="elta_sports1">
+    <title lang="zh">愛爾達體育1台 精彩節目</title>
+  </programme>
+  <programme start="20261017040000 +0800" stop="20261017060000 +0800" channel="elta_sports1">
+    <title lang="zh">愛爾達體育1台 精彩節目</title>
+  </programme>
+  <programme start="20261017060000 +0800" stop="20261017080000 +0800" channel="elta_sports1">
+    <title lang="zh">愛爾達體育1台 精彩節目</title>
+  </programme>
+  <programme start="20261017080000 +0800" stop="20261017100000 +0800" channel="elta_sports1">
+    <title lang="zh">愛爾達體育1台 精彩節目</title>
+  </programme>
+  <programme start="20261017100000 +0800" stop="20261017120000 +0800" channel="elta_sports1">
+    <title lang="zh">愛爾達體育1台 精彩節目</title>
+  </programme>
+  <programme start="20261016120000 +0800" stop="20261016140000 +0800" channel="dazn1">
+    <title lang="zh">DAZN 1 精彩節目</title>
+  </programme>
+  <programme start="20261016140000 +0800" stop="20261016160000 +0800" channel="dazn1">
+    <title lang="zh">DAZN 1 精彩節目</title>
+  </programme>
+  <programme start="20261016160000 +0800" stop="20261016180000 +0800" channel="dazn1">
+    <title lang="zh">DAZN 1 精彩節目</title>
+  </programme>
+  <programme start="20261016180000 +0800" stop="20261016200000 +0800" channel="dazn1">
+    <title lang="zh">DAZN 1 精彩節目</title>
+  </programme>
+  <programme start="20261016200000 +0800" stop="20261016220000 +0800" channel="dazn1">
+    <title lang="zh">DAZN 1 精彩節目</title>
+  </programme>
+  <programme start="20261016220000 +0800" stop="20261017000000 +0800" channel="dazn1">
+    <title lang="zh">DAZN 1 精彩節目</title>
+  </programme>
+  <programme start="20261017000000 +0800" stop="20261017020000 +0800" channel="dazn1">
+    <title lang="zh">DAZN 1 精彩節目</title>
+  </programme>
+  <programme start="20261017020000 +0800" stop="20261017040000 +0800" channel="dazn1">
+    <title lang="zh">DAZN 1 精彩節目</title>
+  </programme>
+  <programme start="20261017040000 +0800" stop="20261017060000 +0800" channel="dazn1">
+    <title lang="zh">DAZN 1 精彩節目</title>
+  </programme>
+  <programme start="20261017060000 +0800" stop="20261017080000 +0800" channel="dazn1">
+    <title lang="zh">DAZN 1 精彩節目</title>
+  </programme>
+  <programme start="20261017080000 +0800" stop="20261017100000 +0800" channel="dazn1">
+    <title lang="zh">DAZN 1 精彩節目</title>
+  </programme>
+  <programme start="20261017100000 +0800" stop="20261017120000 +0800" channel="dazn1">
+    <title lang="zh">DAZN 1 精彩節目</title>
+  </programme>
+</tv>
